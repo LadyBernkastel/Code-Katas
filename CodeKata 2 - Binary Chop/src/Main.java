@@ -31,7 +31,6 @@ public class Main {
 		assertEquals(-1, chop(8, fourData));
 	}
 	
-
 	/*
 	 * Try 2 - Iterative
 	 */
@@ -78,6 +77,8 @@ public class Main {
 		System.arraycopy(dataSet, arrayMiddle, choppedArray, 0, choppedLength);
 		return choppedArray;
 	}
+	
+	// Test Edit
 	
 	/*
 	 * Try 1 - Recursive
