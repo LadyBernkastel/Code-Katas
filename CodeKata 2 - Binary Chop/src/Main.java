@@ -78,8 +78,6 @@ public class Main {
 		return choppedArray;
 	}
 	
-	// Test Edit
-	
 	/*
 	 * Try 1 - Recursive
 	 *
