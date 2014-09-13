@@ -26,8 +26,7 @@ public class WeatherData {
 			int spreadDate = 0;
 			
 			for (int i = 2; i < stringList.size(); i++) {
-				String line = stringList.get(i);
-				String[] splitLine = line.split("\\s+");
+				String[] splitLine = stringList.get(i).split("\\s+");
 				int day = stringToInt(splitLine[1]);
 				int max = stringToInt(splitLine[2]);
 				int min = stringToInt(splitLine[3]);
