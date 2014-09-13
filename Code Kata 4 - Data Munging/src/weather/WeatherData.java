@@ -1,73 +1,33 @@
 package weather;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
+
+import common.DataLine;
+import common.Utilities;
 
 public class WeatherData {
-	
 	private final File dataFile = new File("src/weather/weather.dat");
 
 	public static void main(String[] args) {
 		new WeatherData();
 	}
-	
+
 	public WeatherData() {
-		Scanner scanner = null;
-		try {
-			scanner = new Scanner(dataFile);
-			ArrayList<String> stringList = new ArrayList<String>();
-			while (scanner.hasNextLine()) {
-				stringList.add(scanner.nextLine());
-			}
+		List<String> stringList = Utilities.parseFileIntoLines(dataFile);
+		List<DataLine> dataLines = new ArrayList<DataLine>();
+
+		for (int i = 2; i < stringList.size(); i++) {
+			String[] splitLine = stringList.get(i).split("\\s+");
 			
-			int smallestSpread = -1;
-			int spreadDate = 0;
+			String day = splitLine[1];
+			int max = Utilities.safeStringToInt(splitLine[2]);
+			int min = Utilities.safeStringToInt(splitLine[3]);
 			
-			for (int i = 2; i < stringList.size(); i++) {
-				String[] splitLine = stringList.get(i).split("\\s+");
-				int day = stringToInt(splitLine[1]);
-				int max = stringToInt(splitLine[2]);
-				int min = stringToInt(splitLine[3]);
-				
-				int spread = calculateTemperatureSpread(max, min);
-				
-				System.out.println("Day: " + day + " Max: " + max + " Min: " + min + " Spread: " + spread);
-				
-				if (smallestSpread == -1) {
-					smallestSpread = spread;
-				}
-				
-				if (spread < smallestSpread) {
-					smallestSpread = spread;
-					spreadDate = day;
-				}
-			}
-			
-			System.out.println("Smallest Spread: " + smallestSpread + " Day: " + spreadDate);
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			if (scanner != null) {
-				scanner.close();
-			}
+			dataLines.add(new DataLine(day, max, min));
 		}
 		
-	}
-
-	private int stringToInt(String stringToParse) {
-		stringToParse = stringToParse.replaceAll( "[^\\d]", "" );
-		try {
-			return Integer.parseInt(stringToParse);
-		} catch (NumberFormatException e) {
-			return -1;
-		}
-	}
-	
-	
-	private int calculateTemperatureSpread(int max, int min) {
-		return max - min;
+		Utilities.getLineWithSmallestSpread(dataLines);
 	}
 }
