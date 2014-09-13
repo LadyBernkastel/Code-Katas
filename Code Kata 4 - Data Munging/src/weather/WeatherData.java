@@ -17,9 +17,9 @@ public class WeatherData {
 	public WeatherData() {
 		List<String> stringList = Utilities.parseFileIntoLines(dataFile);
 		List<DataLine> dataLines = new ArrayList<DataLine>();
+		List<String[]> splitStrings = Utilities.splitCleanStringsOnWhitespace(stringList);
 
-		for (int i = 2; i < stringList.size(); i++) {
-			String[] splitLine = stringList.get(i).split("\\s+");
+		for (String[] splitLine : splitStrings) {
 			
 			String day = splitLine[1];
 			int max = Utilities.safeStringToInt(splitLine[2]);

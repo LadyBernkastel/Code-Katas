@@ -15,22 +15,20 @@ public class FootballData {
 	}
 
 	public FootballData() {
-		List<String> stringList = Utilities.parseFileIntoLines(dataFile);
 		List<DataLine> dataLines = new ArrayList<DataLine>();
 
-		for (int i = 1; i < stringList.size(); i++) {
-			String[] splitLine = stringList.get(i).split("\\s+");
+		List<String> stringList = Utilities.parseFileIntoLines(dataFile);
+		List<String[]> splitStrings = Utilities
+				.splitCleanStringsOnWhitespace(stringList);
 
-			if (splitLine.length == 11) {
+		for (String[] splitLine : splitStrings) {
+			String team = splitLine[2];
+			int goalsFor = Utilities.safeStringToInt(splitLine[7]);
+			int goalsAgainst = Utilities.safeStringToInt(splitLine[9]);
 
-				String team = splitLine[2];
-				int goalsFor = Utilities.safeStringToInt(splitLine[7]);
-				int goalsAgainst = Utilities.safeStringToInt(splitLine[9]);
-				
-				dataLines.add(new DataLine(team, goalsFor, goalsAgainst));
-			}
+			dataLines.add(new DataLine(team, goalsFor, goalsAgainst));
 		}
-		
+
 		Utilities.getLineWithSmallestSpread(dataLines);
 
 	}
