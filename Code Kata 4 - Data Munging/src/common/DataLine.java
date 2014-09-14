@@ -1,10 +1,9 @@
 package common;
 
 public class DataLine {
-	String subject;
-	int firstValue;
-	int secondValue;
-	int spread;
+	private String subject;
+	private int firstValue;
+	private int secondValue;
 	
 	public DataLine(String subject, int firstValue, int secondValue) {
 		this.subject = subject;

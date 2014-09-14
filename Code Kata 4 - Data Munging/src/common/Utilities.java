@@ -68,4 +68,18 @@ public class Utilities {
 		return splitStrings;
 	}
 
+	public static List<DataLine> convertStringsToDataLines(
+			List<String[]> splitStrings, int subjectColumn, int firstColumn,
+			int secondColumn) {
+		List<DataLine> dataLines = new ArrayList<DataLine>();
+		for (String[] splitLine : splitStrings) {
+			String team = splitLine[subjectColumn];
+			int goalsFor = safeStringToInt(splitLine[firstColumn]);
+			int goalsAgainst = safeStringToInt(splitLine[secondColumn]);
+	
+			dataLines.add(new DataLine(team, goalsFor, goalsAgainst));
+		}
+		return dataLines;
+	}
+
 }

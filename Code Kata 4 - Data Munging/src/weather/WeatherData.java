@@ -1,13 +1,15 @@
 package weather;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import common.DataLine;
 import common.Utilities;
 
 public class WeatherData {
+	private static final int DAY_COLUMN = 1;
+	private static final int MAX_COLUMN = 2;
+	private static final int MIN_COLUMN = 3;
 	private final File dataFile = new File("src/weather/weather.dat");
 
 	public static void main(String[] args) {
@@ -16,18 +18,9 @@ public class WeatherData {
 
 	public WeatherData() {
 		List<String> stringList = Utilities.parseFileIntoLines(dataFile);
-		List<DataLine> dataLines = new ArrayList<DataLine>();
 		List<String[]> splitStrings = Utilities.splitCleanStringsOnWhitespace(stringList);
-
-		for (String[] splitLine : splitStrings) {
-			
-			String day = splitLine[1];
-			int max = Utilities.safeStringToInt(splitLine[2]);
-			int min = Utilities.safeStringToInt(splitLine[3]);
-			
-			dataLines.add(new DataLine(day, max, min));
-		}
-		
+		List<DataLine> dataLines = Utilities.convertStringsToDataLines(splitStrings,
+				DAY_COLUMN, MAX_COLUMN, MIN_COLUMN);
 		Utilities.getLineWithSmallestSpread(dataLines);
 	}
 }
