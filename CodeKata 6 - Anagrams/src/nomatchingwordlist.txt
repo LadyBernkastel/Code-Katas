@@ -1,0 +1,10 @@
+hello
+goodbye
+test
+anagram
+kata
+code
+door
+window
+auto
+trader
