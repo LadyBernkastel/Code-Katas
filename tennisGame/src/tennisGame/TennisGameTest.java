@@ -9,9 +9,9 @@ import org.junit.Test;
 
 public class TennisGameTest {
 	
-	private File gameOne = new File("src/tennis_game/gameOne");
-	private File gameTwo = new File("src/tennis_game/gameTwo");
-	private File gameThree = new File("src/tennis_game/gameThree");
+	private File gameOne = new File("src/tennisGame/gameOne");
+	private File gameTwo = new File("src/tennisGame/gameTwo");
+	private File gameThree = new File("src/tennisGame/gameThree");
 	
 	@Test
 	public void gameOneTest() {
