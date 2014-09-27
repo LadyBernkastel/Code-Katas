@@ -3,6 +3,7 @@ import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -21,9 +22,9 @@ public class AnagramFinderTest {
 	
 	@Test
 	public void findsAnagramsInShortWordFile() {
-		List<String> anagrams = anagramFinder.findAnagrams(shortWordFile);
+		Map<AnagramWord, String> anagrams = anagramFinder.findAnagrams(shortWordFile);
 		assertThat(anagrams.isEmpty(), Matchers.is(false));
-		assertThat(anagrams, containsInAnyOrder("kinship pinkish", "enlist inlets listen silent"));
+		assertThat(anagrams.values(), containsInAnyOrder("kinship pinkish", "enlist inlets listen silent"));
 	}
 	
 }

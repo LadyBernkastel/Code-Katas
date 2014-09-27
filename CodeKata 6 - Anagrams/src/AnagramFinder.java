@@ -1,15 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
 public class AnagramFinder {
 	private final File fullWordFile = new File("src/wordlist.txt");
+	private final Map<AnagramWord, String> anagramList = new HashMap<AnagramWord, String>();
 
-	public List<String> findAnagrams(File wordFile) {
-		ArrayList<String> anagramList = new ArrayList<String>();
+	public Map<AnagramWord, String> findAnagrams(File wordFile) {
 		List<AnagramWord> wordList = extractWords(wordFile);
 		
 		for (AnagramWord word : wordList) {
