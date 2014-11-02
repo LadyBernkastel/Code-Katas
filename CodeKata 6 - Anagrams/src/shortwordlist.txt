@@ -16,7 +16,7 @@ enlist
 crepitus
 cuprit
 listen
-silentes
+silent
 pictures
 piecrust
 paste

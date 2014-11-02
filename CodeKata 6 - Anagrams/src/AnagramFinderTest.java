@@ -1,30 +1,38 @@
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
-import org.hamcrest.Matchers;
-import org.junit.Before;
 import org.junit.Test;
 
 
 public class AnagramFinderTest {
 	private final File shortWordFile = new File("src/shortwordlist.txt");
 	private final File noMatchesFile = new File("src/nomatchingwordlist.txt");
-	private AnagramFinder anagramFinder = null;
-	
-	@Before
-	public void beforeTest() {
-		anagramFinder = new AnagramFinder();
-	}
+	private final File fullWordFile = new File("src/wordlist.txt");
+	private Map<AnagramWord, String> anagrams;
 	
 	@Test
 	public void findsAnagramsInShortWordFile() {
-		Map<AnagramWord, String> anagrams = anagramFinder.findAnagrams(shortWordFile);
-		assertThat(anagrams.isEmpty(), Matchers.is(false));
-		assertThat(anagrams.values(), containsInAnyOrder("kinship pinkish", "enlist inlets listen silent"));
+		anagrams = AnagramFinder.findAnagrams(shortWordFile);
+		thenTheSizeOfTheAnagramListIs(11);
+	}
+	
+	@Test
+	public void findsNoAnagramsInFileWithNoMatches() {
+		anagrams = AnagramFinder.findAnagrams(noMatchesFile);
+		thenTheSizeOfTheAnagramListIs(0);
+	}
+	
+	@Test
+	public void findsAnagramsInFullWordFile() {
+		anagrams = AnagramFinder.findAnagrams(fullWordFile);
+		thenTheSizeOfTheAnagramListIs(20683);
+	}
+	
+	private void thenTheSizeOfTheAnagramListIs(int size) {
+		assertThat(anagrams.size(), is(size));
 	}
 	
 }

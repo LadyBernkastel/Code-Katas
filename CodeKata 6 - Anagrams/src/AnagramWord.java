@@ -11,7 +11,7 @@ public class AnagramWord {
 	}
 
 	private void extractCharacterList() {
-		char[] characters = null;
+		char[] characters = new char[word.length()];
 		word.getChars(0, word.length(), characters, 0);
 		for (char c : characters) {
 			if (!characterMap.containsKey(c)) {
