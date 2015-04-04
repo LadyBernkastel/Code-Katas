@@ -1,9 +1,15 @@
 package main;
 
 public class FootballResults {
+	
+	private int numberOfResults;
 
-	public Object numberOfResults() {
-		return null;
+	public FootballResults(int numberOfResults) {
+		this.numberOfResults = numberOfResults;
+	}
+
+	public int getNumberOfResults() {
+		return numberOfResults;
 	}
 
 }

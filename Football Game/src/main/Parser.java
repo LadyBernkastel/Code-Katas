@@ -7,17 +7,19 @@ import java.io.IOException;
 public class Parser {
 
 	public FootballResults parse(String filename) throws IOException {
-		FootballResults footballResults = new FootballResults();
 		BufferedReader input = new BufferedReader(new FileReader(filename));
+		int lineCount = 0;
 		try {
 			String line = null;
+			input.readLine();
 			while ((line = input.readLine()) != null) {
+				lineCount++;
 				System.out.println(line);
 			}
 		} finally {
 			input.close();
 		}
-		return footballResults;
+		return new FootballResults(lineCount);
 
 	}
 

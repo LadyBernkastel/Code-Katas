@@ -9,12 +9,12 @@ import main.Parser;
 import org.junit.Test;
 
 public class ParserTest {
+	
 	@Test
-	public void shouldReadFootballResults() throws IOException {
+	public void parsesCorrectNumberOfResults() throws IOException {
 		Parser parser = new Parser();
 		FootballResults footballResults = parser.parse("data/football.dat");
-		assertEquals(footballResults.numberOfResults(), 20);
-		
+		assertEquals(footballResults.getNumberOfResults(), 20);
 	}
 	
 }
