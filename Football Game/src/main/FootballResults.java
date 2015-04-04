@@ -31,5 +31,18 @@ public class FootballResults {
 		
 		results.add(new Result(teamName, forGoals, againstGoals));
 	}
+	
+	public String getTeamWithSmallestGoalDifference() {
+		int smallestDifference = Integer.MAX_VALUE;
+		String teamWithSmallestDiff = "";
+		
+		for (Result team : results) {
+			if (team.getGoalDifference() < smallestDifference) {
+				smallestDifference = team.getGoalDifference();
+				teamWithSmallestDiff = team.getTeamName();
+			}
+		}
+		return teamWithSmallestDiff;
+	}
 
 }

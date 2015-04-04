@@ -23,9 +23,4 @@ public class ParserTest {
 		assertThat(footballResults.getNumberOfResults(), is(20));
 	}
 	
-	@Test
-	public void parsesDataFromSingleLine() {
-		assertThat(footballResults.getResult(0).getTeamName(), is("Arsenal"));
-	}
-	
 }

@@ -12,16 +12,12 @@ public class Result {
 		this.againstGoals = againstGoals;
 	}
 
-	public int getForGoals() {
-		return forGoals;
-	}
-
-	public int getAgainstGoals() {
-		return againstGoals;
-	}
-
 	public String getTeamName() {
 		return teamName;
+	}
+
+	public int getGoalDifference() {
+		return Math.abs(forGoals - againstGoals);
 	}
 
 }
