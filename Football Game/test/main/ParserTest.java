@@ -1,20 +1,31 @@
 package main;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 import java.io.IOException;
 
-import main.FootballResults;
-import main.Parser;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class ParserTest {
 	
+	private Parser parser;
+	private FootballResults footballResults;
+
+	@Before
+	public void before() throws IOException {
+		parser = new Parser();
+		footballResults = parser.parse("data/football.dat");
+	}
+	
 	@Test
-	public void parsesCorrectNumberOfResults() throws IOException {
-		Parser parser = new Parser();
-		FootballResults footballResults = parser.parse("data/football.dat");
-		assertEquals(footballResults.getNumberOfResults(), 20);
+	public void parsesCorrectNumberOfResults() {
+		assertThat(footballResults.getNumberOfResults(), is(20));
+	}
+	
+	@Test
+	public void parsesDataFromSingleLine() {
+		assertThat(footballResults.getResult(0).getTeamName(), is("Arsenal"));
 	}
 	
 }
