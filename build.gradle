@@ -1,0 +1,16 @@
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+	
+	repositories {
+	    maven {
+	        url "http://nexus.dev.dc1.tradermedia.net:8081/nexus/content/groups/public"
+	    }
+	}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+    distributionUrl = "http://nexus.dev.dc1.tradermedia.net:8081/nexus/content/repositories/thirdparty/org/gradle/gradle/2.4/gradle-2.4-bin.zip"
+}
