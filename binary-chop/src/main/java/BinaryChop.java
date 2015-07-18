@@ -2,7 +2,7 @@ public class BinaryChop {
 	/*
 	 * Try 2 - Iterative
 	 */
-	public int chop(int target, int[] dataSet) {
+	public int iterativeChop(int target, int[] dataSet) {
 		boolean notFound = true;
 		int result = -1;		
 		int relativePosition = 0;
@@ -45,43 +45,40 @@ public class BinaryChop {
 		System.arraycopy(dataSet, arrayMiddle, choppedArray, 0, choppedLength);
 		return choppedArray;
 	}
-	
-	/*
-	 * Try 1 - Recursive
-	 *
-	private int chop(int target, int[] dataSet) {
+
+	public int recursiveChop(int target, int[] dataSet) {
 		int arrayLength = dataSet.length;
-		
+
 		if(dataSet.length == 0) {
 			return -1;
 		}
-		
+
 		int arrayMiddle = arrayLength/2;
 		int middleValue = dataSet[arrayMiddle];
-		
+
 		if (arrayLength == 1 && middleValue != target) {
 			return -1;
 		}
-		
+
 		if (middleValue > target) {
 			int choppedLength = arrayMiddle;
 			int[] choppedArray = copyArray(dataSet, 0, choppedLength);
-			return chop(target, choppedArray);
-			
+			return iterativeChop(target, choppedArray);
+
 		} else if (middleValue < target) {
 			int choppedLength = arrayLength-arrayMiddle;
 			int[] choppedArray = copyArray(dataSet, arrayMiddle, choppedLength);
-			
-			int relativePosition = dataSet.length - choppedLength;			
-			int chop = chop(target, choppedArray);
-			
-			if (chop != -1)
-				return chop + relativePosition;		
-			return chop;
+
+			int relativePosition = dataSet.length - choppedLength;
+			int iterativeChop = iterativeChop(target, choppedArray);
+
+			if (iterativeChop != -1)
+				return iterativeChop + relativePosition;
+			return iterativeChop;
 		}
-		
+
 		return arrayMiddle;
-	} */
+	}
 	
 	
 }
