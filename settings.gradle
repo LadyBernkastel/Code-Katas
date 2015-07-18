@@ -1,1 +1,6 @@
+include 'binary-chop'
+include 'data-munging'
+include 'anagram-finder'
+include 'tennis-game'
+include 'football-game'
 include 'bowling-game'

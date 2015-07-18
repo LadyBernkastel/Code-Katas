@@ -3,6 +3,7 @@ package uk.co.bernkastel.dojo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -18,6 +19,7 @@ public class BowlingGameTest {
 	}
 	
 	@Test
+	@Ignore
 	public void allOnes() throws Exception {
 		BowlingGame game = new BowlingGameFactory().create();
 		for (int i = 0; i < 1; i++) {
