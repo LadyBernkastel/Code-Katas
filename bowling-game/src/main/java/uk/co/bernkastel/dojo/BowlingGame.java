@@ -11,8 +11,9 @@ public class BowlingGame {
 		frameList = new ArrayList<Integer>();
 	}
 
-	public void roll(int roll) {
-		frameList.add(roll);
+	public void frame(int rollOne, int rollTwo) {
+		frameList.add(rollOne);
+		frameList.add(rollTwo);
 	}
 	
 	public int score() {

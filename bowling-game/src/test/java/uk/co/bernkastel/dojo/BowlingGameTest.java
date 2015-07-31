@@ -4,7 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -19,42 +18,32 @@ public class BowlingGameTest {
 
     @Test
     public void gutterGame() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(0);
+        for (int i = 0; i < 10; i++) {
+            game.frame(0, 0);
         }
         assertThat(game.score(), is(0));
     }
 
     @Test
     public void allOnes() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(1);
+        for (int i = 0; i < 10; i++) {
+            game.frame(1, 1);
         }
         assertThat(game.score(), is(20));
     }
 
     @Test
     public void noSpares() throws Exception {
-        game.roll(0);
-        game.roll(0);
-        game.roll(3);
-        game.roll(0);
-        game.roll(0);
-        game.roll(0);
-        game.roll(6);
-        game.roll(2);
-        game.roll(0);
-        game.roll(2);
-        game.roll(0);
-        game.roll(0);
-        game.roll(7);
-        game.roll(1);
-        game.roll(0);
-        game.roll(5);
-        game.roll(0);
-        game.roll(0);
-        game.roll(0);
-        game.roll(0);
+        game.frame(0, 0);
+        game.frame(3, 0);
+        game.frame(0, 0);
+        game.frame(6, 2);
+        game.frame(0, 2);
+        game.frame(0, 0);
+        game.frame(7, 1);
+        game.frame(0, 5);
+        game.frame(0, 0);
+        game.frame(0, 0);
         assertThat(game.score(), is(26));
     }
 }
