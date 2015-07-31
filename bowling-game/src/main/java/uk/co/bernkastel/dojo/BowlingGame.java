@@ -5,19 +5,18 @@ import java.util.List;
 
 public class BowlingGame {
 
-	private List<Integer> frameList;
+	private List<Frame> frameList;
 
 	public BowlingGame() {
-		frameList = new ArrayList<Integer>();
+		frameList = new ArrayList<Frame>();
 	}
 
 	public void frame(int rollOne, int rollTwo) {
-		frameList.add(rollOne);
-		frameList.add(rollTwo);
+		frameList.add(new Frame(rollOne, rollTwo));
 	}
 	
 	public int score() {
-		return new ScoreCaluclatorFactory(frameList).build().score();
+		return new ScoreCalculatorFactory(frameList).build().score();
 	}
 	
 }

@@ -46,4 +46,19 @@ public class BowlingGameTest {
         game.frame(0, 0);
         assertThat(game.score(), is(26));
     }
+
+    @Test
+    public void oneSpare() throws Exception {
+        game.frame(0, 1);
+        game.frame(7, 2);
+        game.frame(3, 7);
+        game.frame(7, 1);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        assertThat(game.score(), is(35));
+    }
 }
