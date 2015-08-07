@@ -18,9 +18,7 @@ public class StrikeBonusCalculator implements ScoreCalculator {
             if (wasStrike) {
                 bonus += frame.getStrikeBonus();
             }
-            if (frame.isStrike()) {
-                wasStrike = true;
-            }
+            wasStrike = frame.isStrike();
         }
         return bonus;
     }

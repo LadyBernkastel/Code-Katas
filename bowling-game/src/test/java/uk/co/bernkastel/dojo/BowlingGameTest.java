@@ -106,4 +106,19 @@ public class BowlingGameTest {
         game.finalFrame(10, 3, 6);
         assertThat(game.score(), is(19));
     }
+
+    @Test
+    public void perfectGame() throws Exception {
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.frame(10, 0);
+        game.finalFrame(10, 10, 10);
+        assertThat(game.score(), is(300));
+    }
 }
