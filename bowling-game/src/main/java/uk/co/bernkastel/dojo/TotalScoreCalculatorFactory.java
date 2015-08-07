@@ -2,11 +2,11 @@ package uk.co.bernkastel.dojo;
 
 import java.util.List;
 
-public class ScoreCalculatorFactory {
+public class TotalScoreCalculatorFactory {
 
     private List<Frame> frameList;
 
-    public ScoreCalculatorFactory(List<Frame> frameList) {
+    public TotalScoreCalculatorFactory(List<Frame> frameList) {
         this.frameList = frameList;
     }
 

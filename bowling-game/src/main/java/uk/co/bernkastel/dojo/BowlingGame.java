@@ -16,7 +16,7 @@ public class BowlingGame {
 	}
 	
 	public int score() {
-		return new ScoreCalculatorFactory(frameList).build().calculate();
+		return new TotalScoreCalculatorFactory(frameList).build().calculate();
 	}
 	
 }

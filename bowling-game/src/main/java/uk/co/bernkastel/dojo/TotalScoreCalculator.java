@@ -1,17 +1,17 @@
 package uk.co.bernkastel.dojo;
 
+import static java.util.Arrays.stream;
+
 public class TotalScoreCalculator implements ScoreCalculator {
 
-    private SpareBonusCalculator spareBonusCalculator;
-    private ScoreCalculator scoreCalculator;
+    private ScoreCalculator[] scoreCalculators;
 
-    public TotalScoreCalculator(final SpareBonusCalculator spareBonusCalculator, final ScoreCalculator scoreCalculator) {
-        this.spareBonusCalculator = spareBonusCalculator;
-        this.scoreCalculator = scoreCalculator;
+    public TotalScoreCalculator(ScoreCalculator... scoreCalculators) {
+        this.scoreCalculators = scoreCalculators;
     }
 
     @Override
     public int calculate() {
-        return scoreCalculator.calculate() + spareBonusCalculator.calculate();
+        return stream(scoreCalculators).mapToInt(ScoreCalculator::calculate).sum();
     }
 }
