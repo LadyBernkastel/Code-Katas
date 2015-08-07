@@ -1,9 +1,5 @@
 # Bowling Game Open Closed
 
-```
-End date: Friday 31st July (2 weeks)
-```
-
 # Rules
 1. Write the first failing test. It should use a factory method to obtain the object(s) under test.  
 2. Make the test pass.  
@@ -191,28 +187,6 @@ The same rules as standard 10 pin bowling with the following changes:
 		<td>200</td>
 	</tr>
 </table>
-
-# Setup/Running Tests
-Install dependencies
-```
-npm install
-```
-
-Run tests
-```
-npm test
-```
-
-The test framework is [mocha](http://mochajs.org/) and the assertion library is [chai](http://chaijs.com/), 
-[sinon](http://sinonjs.org/) and [sinon-chai](http://sinonjs.org/) have also been included for you. There is a 
-helper.js file that includes mocha, chai, sinon and sinon-chai and sets up chai with the should style of assertions
-to save you having to do it in each test file.
-
-### There's some nice cheat sheets here:
-
-http://ricostacruz.com/cheatsheets/mocha.html  
-http://ricostacruz.com/cheatsheets/chai.html  
-http://ricostacruz.com/cheatsheets/sinon-chai.html
 
 ### References/Inspiration
 http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata  
