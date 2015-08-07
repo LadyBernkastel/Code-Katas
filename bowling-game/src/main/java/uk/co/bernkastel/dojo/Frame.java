@@ -24,4 +24,8 @@ public class Frame {
     private boolean rollOneIsSpare() {
         return rollOne < 10 && rollTwo != 10;
     }
+
+    public int getSpareBonus() {
+        return rollOne;
+    }
 }

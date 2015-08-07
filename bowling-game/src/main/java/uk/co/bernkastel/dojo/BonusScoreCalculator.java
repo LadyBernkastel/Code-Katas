@@ -2,17 +2,15 @@ package uk.co.bernkastel.dojo;
 
 import java.util.List;
 
-public class BonusScoreCalculator {
+public class BonusScoreCalculator implements ScoreCalculator {
     private List<Frame> frameList;
 
     public BonusScoreCalculator(List<Frame> frameList) {
         this.frameList = frameList;
     }
 
+    @Override
     public int calculate() {
-//        frameList.stream().
-
-
-        return 0;
+        return new SpareBonusCalculator(frameList).calculate();
     }
 }

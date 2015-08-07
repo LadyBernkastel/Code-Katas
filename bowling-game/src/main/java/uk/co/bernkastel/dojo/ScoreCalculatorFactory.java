@@ -10,7 +10,7 @@ public class ScoreCalculatorFactory {
         this.frameList = frameList;
     }
 
-    public ScoreCalculator build() {
-        return new ScoreCalculator(frameList);
+    public TotalScoreCalculator build() {
+        return new TotalScoreCalculator(new SpareBonusCalculator(frameList), new StandardScoreCalculator(frameList));
     }
 }
