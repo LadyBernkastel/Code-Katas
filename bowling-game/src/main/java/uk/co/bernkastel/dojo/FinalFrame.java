@@ -10,8 +10,18 @@ public class FinalFrame extends Frame {
     }
 
     @Override
+    public int getTotal() {
+        return rollOne == 10 ? rollOne : super.getTotal();
+    }
+
+    @Override
     public int getSpareBonus() {
         return rollThree;
+    }
+
+    @Override
+    public int getStrikeBonus() {
+        return rollTwo + rollThree;
     }
 
 }

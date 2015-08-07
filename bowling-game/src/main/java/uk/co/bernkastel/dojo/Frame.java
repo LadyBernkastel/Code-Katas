@@ -1,8 +1,8 @@
 package uk.co.bernkastel.dojo;
 
 public class Frame {
-    private final int rollOne;
-    private final int rollTwo;
+    protected final int rollOne;
+    protected final int rollTwo;
 
     public Frame(int rollOne, int rollTwo) {
         this.rollOne = rollOne;

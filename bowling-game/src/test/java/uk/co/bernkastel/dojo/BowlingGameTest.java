@@ -91,4 +91,19 @@ public class BowlingGameTest {
         game.frame(0, 0);
         assertThat(game.score(), is(20));
     }
+
+    @Test
+    public void finalStrike() throws Exception {
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.finalFrame(10, 3, 6);
+        assertThat(game.score(), is(19));
+    }
 }
