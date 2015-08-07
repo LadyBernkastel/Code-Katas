@@ -10,6 +10,9 @@ public class BonusScoreCalculator {
     }
 
     public int calculate() {
+//        frameList.stream().
+
+
         return 0;
     }
 }

@@ -14,6 +14,14 @@ public class Frame {
     }
 
     public boolean isSpare() {
-        return false;
+        return getTotal() == 10 && (rollOneIsSpare() || rollTwoIsSpare());
+    }
+
+    private boolean rollTwoIsSpare() {
+        return rollTwo < 10 && rollOne != 10;
+    }
+
+    private boolean rollOneIsSpare() {
+        return rollOne < 10 && rollTwo != 10;
     }
 }
