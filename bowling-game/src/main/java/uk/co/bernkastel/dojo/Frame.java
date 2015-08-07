@@ -29,4 +29,11 @@ public class Frame {
         return rollOne < 10 && rollTwo != 10;
     }
 
+    public int getStrikeBonus() {
+        return rollOne + rollTwo;
+    }
+
+    public boolean isStrike() {
+        return rollOne == 10;
+    }
 }
