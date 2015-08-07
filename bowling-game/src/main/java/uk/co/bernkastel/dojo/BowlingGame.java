@@ -18,5 +18,8 @@ public class BowlingGame {
 	public int score() {
 		return new TotalScoreCalculatorFactory(frameList).build().calculate();
 	}
-	
+
+	public void finalFrame(int rollOne, int rollTwo, int rollThree) {
+		frameList.add(new FinalFrame(rollOne, rollTwo, rollThree));
+	}
 }

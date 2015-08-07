@@ -11,6 +11,6 @@ public class TotalScoreCalculatorFactory {
     }
 
     public TotalScoreCalculator build() {
-        return new TotalScoreCalculator(new SpareBonusCalculator(frameList), new StandardScoreCalculator(frameList));
+        return new TotalScoreCalculator(new SpareBonusCalculator(frameList), new StandardScoreCalculator(frameList), new FinalFrameSpareBonusCalculator(frameList));
     }
 }

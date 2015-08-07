@@ -1,7 +1,6 @@
 package uk.co.bernkastel.dojo;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -61,5 +60,20 @@ public class BowlingGameTest {
         game.frame(0, 0);
         game.frame(0, 0);
         assertThat(game.score(), is(35));
+    }
+
+    @Test
+    public void finalSpare() throws Exception {
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.frame(0, 0);
+        game.finalFrame(9, 1, 7);
+        assertThat(game.score(), is(17));
     }
 }

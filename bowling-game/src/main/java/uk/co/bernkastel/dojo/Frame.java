@@ -17,6 +17,10 @@ public class Frame {
         return getTotal() == 10 && (rollOneIsSpare() || rollTwoIsSpare());
     }
 
+    public int getSpareBonus() {
+        return rollOne;
+    }
+
     private boolean rollTwoIsSpare() {
         return rollTwo < 10 && rollOne != 10;
     }
@@ -25,7 +29,4 @@ public class Frame {
         return rollOne < 10 && rollTwo != 10;
     }
 
-    public int getSpareBonus() {
-        return rollOne;
-    }
 }
